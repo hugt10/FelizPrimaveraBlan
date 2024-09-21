@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>FLORES</title>
+    <style>
+        html, body {
+            overflow: hidden; /* Oculta las barras de desplazamiento */
+            margin: 0; /* Eliminar márgenes predeterminados */
+            padding: 0; /* Eliminar padding predeterminado */
+        }
+        /* Estilos para el iframe 
+        iframe {
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            border: none;
+            z-index: 100; /* Para que quede siempre encima del contenido */
+            background-color: transparent; /* Para hacerlo menos intrusivo */
+        }*/
+
+    </style>
+    
+</head>
+<body>
+    
+
+    <div class="greetings">
+
+        <span>H</span>
+        <span>O</span>
+        <span>L</span>
+        <span>A</span>
+        <span> </span>
+        <span>A</span>
+        <span>M</span>
+        <span>O</span>
+        <span>R</span>
+    </div>
+    <div class="greetings">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="description">
+        <span>Feliz dia de la Primavera!!</span>
+      
+    </div>
+    <div class="button">
+        <button onclick="loadPage('FLORES.html')">
+            Haga Clic
+        </button>
+        
+    </div>
+    <span> <br>(Primero dale play al reproductor de abajo)</span>
+    <div id="content"></div>
+<iframe src="audio-player.html" allow="autoplay; loop" class="audio-iframe"></iframe>
+      <script>
+        function loadPage(page) {
+            document.getElementById('content').innerHTML = ''; // Limpia el contenido anterior
+            fetch(page)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('content').innerHTML = html; // Carga el nuevo contenido
+                })
+                .catch(error => console.error('Error loading page:', error));
+        }
+    </script>
+</body>
+</html>
